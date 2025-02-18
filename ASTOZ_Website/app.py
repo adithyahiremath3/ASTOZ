@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-EXCEL_FILE = r"data\ASTOZ.xlsx"  # Use raw string or forward slashes
+EXCEL_FILE = "ASTOZ.xlsx"  # Use raw string or forward slashes
 
 # Ensure the file exists
 if not os.path.exists(EXCEL_FILE):
