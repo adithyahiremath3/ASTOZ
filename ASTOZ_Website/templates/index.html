@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTOZ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to ASTOZ!</h1>
+        <h2>Anagha's Support Team in OZ</h2>
+        <label for="sheet-select">Select a Place:</label>
+        <select id="sheet-select" class="dropdown" onchange="navigateToSheet()">
+            <option value="" selected disabled>Choose...</option>
+            {% for sheet in sheet_names %}
+                <option value="{{ sheet }}">{{ sheet }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <script>
+        function navigateToSheet() {
+            let selectedSheet = document.getElementById("sheet-select").value;
+            if (selectedSheet) {
+                window.location.href = "/table/" + selectedSheet;
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTOZ - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Cambria', serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            font-size: 40px;
+        }
+        .subheading {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0073e6;
+        }
+        .description {
+            text-align: center;
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+        .list {
+            margin-top: 20px;
+            padding: 10px;
+        }
+        .list ul {
+            list-style: none;
+            padding: 0;
+        }
+        .list li {
+            padding: 10px;
+            background: #fff;
+            margin-bottom: 8px;
+            border-left: 5px solid #0073e6;
+            font-size: 16px;
+        }
+        .list li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .list li i {
+            color: #0073e6;
+            margin-right: 10px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        .footer a {
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>ASTOZ</h1>
+        <div class="subheading">Anagha's Support Team in OZ</div>
+        <div class="description">
+            "We are ASTOZ! A team dedicated to supporting our beloved leader Anagha, on her journey in Australia. 
+            Our mission is to ensure she has an incredible experience by helping her enjoy the journey, 
+            navigate unexpected challenges, and stay well prepared for every step ahead."
+        </div>
+
+        <div class="list">
+            <ul>
+                <li><i class="fas fa-hospital"></i> <a href="#">Hospitals, Clinics, and Medical Centers</a></li>
+                <li><i class="fas fa-pills"></i> <a href="#">Pharmacy and Medical Stores</a></li>
+                <li><i class="fas fa-shopping-cart"></i> <a href="#">Supermarkets and Grocery Stores</a></li>
+                <li><i class="fas fa-landmark"></i> <a href="#">Government Offices</a></li>
+                <li><i class="fas fa-university"></i> <a href="#">Banks and ATMs</a></li>
+                <li><i class="fas fa-dumbbell"></i> <a href="#">Gym, Parks, Pools, and Sports Facilities</a></li>
+                <li><i class="fas fa-coffee"></i> <a href="#">Cafés and Eateries</a></li>
+                <li><i class="fas fa-utensils"></i> <a href="#">Restaurants, Hotels, and Bars</a></li>
+                <li><i class="fas fa-film"></i> <a href="#">Malls and Movies</a></li>
+                <li><i class="fas fa-place-of-worship"></i> <a href="#">Temples</a></li>
+                <li><i class="fas fa-book"></i> <a href="#">Stationery and Book Stalls</a></li>
+                <li><i class="fas fa-tshirt"></i> <a href="#">Salon and Clothes</a></li>
+                <li><i class="fas fa-book-reader"></i> <a href="#">Libraries and Study Area</a></li>
+                <li><i class="fas fa-tree"></i> <a href="#">Chilling and Leisure Activity Spots</a></li>
+                <li><i class="fas fa-bus"></i> <a href="#">Transport - Bus | Trams | Train | Taxi | Rentals</a></li>
+                <li><i class="fas fa-ambulance"></i> <a href="#">Emergency Help and Onsite Support</a></li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>The ASTOZ offers insights into over 300 places in and around Melbourne, Australia, helping you explore the best spots with ease.</p>
+            <p><strong>Reference Point - RMIT University</strong></p>
+            <p>📍 Address: 124 La Trobe St, Melbourne VIC 3000, Australia</p>
+            <p>📞 Contact: <a href="tel:+61399252000">+61 3 9925 2000</a></p>
+            <p>🌐 Website: <a href="https://www.rmit.edu.au/" target="_blank">RMIT University</a></p>
+            <p>📄 PDF Map: <a href="https://mvga-prod-files.s3.ap-southeast-4.amazonaws.com/public/2024-05/suburb-map-boundary-city-of-melbourne_2.pdf" target="_blank">Melbourne City Map</a></p>
+            <p>🚆 Public Transport: <a href="https://www.ptv.vic.gov.au/" target="_blank">PTV Victoria</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

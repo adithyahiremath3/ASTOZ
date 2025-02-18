@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ sheet_name }} - Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    
+    <!-- jQuery & DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#data-table').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "order": [[2, "asc"]],
+                "columnDefs": [
+                    { "orderable": true, "targets": "_all" },
+                    { "searchable": true, "targets": "_all" }
+                ]
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        table.dataTable thead th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>{{ sheet_name }}</h1>
+
+    <table id="data-table" class="display">
+        {{ tables|safe }}
+    </table>
+
+    <br>
+    <a href="/">🔙 Back to Home</a>
+
+</body>
+</html>
